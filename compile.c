@@ -59,7 +59,7 @@ void compile()
     j = system(gcc);
     printf("%d", j);
 
-    if (j = -1)
+    if (j == 0)
     {
         printf("CONGRATULATIONS! compiled\n");
     }
