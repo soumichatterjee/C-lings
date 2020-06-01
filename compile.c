@@ -4,34 +4,37 @@
 #include <unistd.h>
 #include <limits.h>
 
-char get_directory(char**);
+char get_directory(char *, int);
 void compile();
 int main()
 {
-    char **gcc[512];
-    get_directory(gcc);
-    
+    int i;
+    for (i = 1; i < 4; i++)
+    {
+        char *gcc[512];
+        void *name;
+        name = get_directory((char *)gcc, i);
+        compile(name);
+    }
 }
-char get_directory(char** gcc)
+char get_directory(char *gcc, int i)
 {
     char cwd[PATH_MAX];
     if (getcwd(cwd, sizeof(cwd)) != NULL)
     {
-        printf("%s\n", cwd);
+        printf("problem-");
     }
     else
     {
         perror("getcwd() error");
     }
 
-    int i;
+    
     char x[64];
     char k[64];
     char p[64];
     char y[64];
-    
-    
-    for (i = 1; i < 4; i++)
+
     {
         sprintf(x, "%d", i);
         strcpy(k, "gcc ");
@@ -44,8 +47,8 @@ char get_directory(char** gcc)
         sprintf(gcc, "%s", k);
         printf("%s\n", gcc);
     }
-    
-    return gcc;
+
+    return (*(char *)gcc);
 }
 void compile()
 {
@@ -56,9 +59,9 @@ void compile()
     j = system(gcc);
     printf("%d", j);
 
-    if (j == 0)
+    if (j = -1)
     {
-        printf("CONGRATULATIONS!  is compiled\n");
+        printf("CONGRATULATIONS! compiled\n");
     }
     else
     {
