@@ -5,19 +5,19 @@
 #include <limits.h>
 
 char get_directory(char *, int);
-void compile();
+void compile(char *);
 int main()
 {
     int i;
     for (i = 1; i < 4; i++)
     {
         char *gcc[512];
-        void *name;
+        char *name;
         name = get_directory((char *)gcc, i);
         compile(name);
     }
 }
-char get_directory(char *gcc, int i)
+char get_directory(char *problemname, int i)
 {
     char cwd[PATH_MAX];
     if (getcwd(cwd, sizeof(cwd)) != NULL)
@@ -29,30 +29,27 @@ char get_directory(char *gcc, int i)
         perror("getcwd() error");
     }
 
-    
     char x[64];
     char k[64];
     char p[64];
     char y[64];
 
-    {
-        sprintf(x, "%d", i);
-        strcpy(k, "gcc ");
-        strcat(k, cwd);
-        strcpy(p, "/Problems/");
-        strcat(k, p);
-        strcpy(y, ".c");
-        strcat(k, x);
-        strcat(k, y);
-        sprintf(gcc, "%s", k);
-        printf("%s\n", gcc);
-    }
+    sprintf(x, "%d", i);
+    strcpy(k, "gcc ");
+    strcat(k, cwd);
+    strcpy(p, "/Problems/");
+    strcat(k, p);
+    strcpy(y, ".c");
+    strcat(k, x);
+    strcat(k, y);
+    sprintf(problemname, "%s", k);
+    printf("%s\n", problemname);
 
-    return (*(char *)gcc);
+    return (*(char *)problemname);
 }
-void compile()
+void compile(char *gcc)
 {
-    char gcc[512];
+
     char h[64];
     char hint[64];
     int j;
