@@ -6,6 +6,7 @@
 
 void get_directory(char *, int);
 void compile();
+int Complete();
 int main()
 {
     int i;
@@ -14,6 +15,11 @@ int main()
         char *directory[512];
         get_directory((char *)directory, i);
         compile(directory);
+        if(Complete(directory) != 1)
+        {
+            printf("Remove //I AM NOT DONE comment to continue compilation \n");
+            break;
+        }
     }
 }
 void get_directory(char *path, int i)
@@ -37,10 +43,10 @@ void compile(char *paths[512])
     char h[64];
     char hint[64];
     char *gcc[512];
-    
+
     sprintf(gcc,"%s%s","gcc ",paths);
     int j = system(gcc);
-    printf("%d", j);
+    //printf("%d", j);
 
     if (j == 0)
     {
@@ -57,7 +63,33 @@ void compile(char *paths[512])
         printf("try checking print statement\n");
       }
     }
-  }
-
-  return 0;
 }
+
+int Complete(char *files[512])
+{
+   char temp[512];
+   char *file_name[512];
+   FILE *fp;
+   char *str = "//I AM NOT DONE";
+   
+   sprintf(file_name,"%s",files);
+
+   if((fp = fopen(file_name,"r")) == NULL)
+    {    
+       perror("File Opening Error");
+       return(-1);
+    }
+   while(fgets(temp,512,fp) != NULL){
+       if(strstr(temp,str) != NULL)
+       {
+               return(0);
+       }
+   }
+   if(fp)
+    {
+       fclose(fp);
+    }
+   return(1);
+  
+}
+
