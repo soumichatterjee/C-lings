@@ -4,36 +4,27 @@
 #include <unistd.h>
 #include <limits.h>
 
-char get_directory(char *, int);
-void compile(char *);
 int main()
 {
-    int i;
-    for (i = 1; i < 4; i++)
-    {
-        char *gcc[512];
-        char *name;
-        name = get_directory((char *)gcc, i);
-        compile(name);
-    }
-}
-char get_directory(char *problemname, int i)
-{
-    char cwd[PATH_MAX];
-    if (getcwd(cwd, sizeof(cwd)) != NULL)
-    {
-        printf("problem-");
-    }
-    else
-    {
-        perror("getcwd() error");
-    }
-
-    char x[64];
-    char k[64];
-    char p[64];
-    char y[64];
-
+  int i, j;
+  char k[64];
+  char x[64];
+  char y[64];
+  char h[64];
+  char hint[64];
+  char gcc[512];
+  char p[64];
+  char cwd[PATH_MAX];
+  if (getcwd(cwd, sizeof(cwd)) != NULL)
+  {
+  }
+  else
+  {
+    perror("getcwd() error");
+    return 1;
+  }
+  for (i = 1; i < 4; i++)
+  {
     sprintf(x, "%d", i);
     strcpy(k, "gcc ");
     strcat(k, cwd);
@@ -42,33 +33,27 @@ char get_directory(char *problemname, int i)
     strcpy(y, ".c");
     strcat(k, x);
     strcat(k, y);
-    sprintf(problemname, "%s", k);
-    printf("%s\n", problemname);
+    printf("%s", k);
+    sprintf(gcc, "%s", k);
 
-    return (*(char *)problemname);
-}
-void compile(char *gcc)
-{
-
-    char h[64];
-    char hint[64];
-    int j;
     j = system(gcc);
-    printf("%d", j);
 
     if (j == 0)
     {
-        printf("CONGRATULATIONS! compiled\n");
+      printf("\nCONGRATULATIONS! problem compiled\n");
     }
     else
     {
-        printf(" not compiled, \n solve error to compile\n for hint type <problem.hint>\n");
+      printf("\nproblem not compiled, \n solve error to compile\n for hint type <problem.hint>\n");
 
-        strcpy(h, "problem.hint");
-        scanf("%s", hint);
-        if (strcmp(h, hint) == 0)
-        {
-            printf("try checking print statement\n");
-        }
+      strcpy(h, "problem.hint");
+      scanf("%s", hint);
+      if (strcmp(h, hint) == 0)
+      {
+        printf("try checking print statement\n");
+      }
     }
+  }
+
+  return 0;
 }
