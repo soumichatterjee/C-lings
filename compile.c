@@ -7,6 +7,7 @@ struct lists
 {
     char array[50][100];
 };
+
 int exe_cnt =0; // Total number of excerises
 struct lists get_directory(char *);
 void compile();
@@ -18,7 +19,7 @@ int main(int argc,char **argv)
         printf("Enter a valid argument verify/watch \n");
         exit(-1);
     }  
-    char *directory[512];
+    char *directory = malloc(128 * sizeof(char));
     struct lists dir_list;
     dir_list = get_directory((char *)directory); 
  
@@ -27,7 +28,7 @@ int main(int argc,char **argv)
         int j=0;
         while(j<exe_cnt)
          {
-            sprintf(directory, dir_list.array[j]);
+            sprintf(directory,"%s", dir_list.array[j]);
             compile(directory);
             if(Complete(directory) != 1)
             {
@@ -43,7 +44,7 @@ int main(int argc,char **argv)
     {
         for(int j=1; j<exe_cnt; j++)
         {
-            sprintf(directory, (char *)dir_list.array[j]);
+            sprintf(directory,"%s",dir_list.array[j]);
             compile(directory);
         }
     }
@@ -93,11 +94,11 @@ int main(int argc,char **argv)
         //printf("%s\n", path);
 
 }
-void compile(char *paths[512])
+void compile(char *paths)
 {
     char h[64];
     char hint[64];
-    char *gcc[512];
+    char *gcc = malloc(128 * sizeof(char));
 
     sprintf(gcc,"%s%s","gcc ",paths);
     int j = system(gcc);
@@ -120,10 +121,10 @@ void compile(char *paths[512])
     }
 }
 
-int Complete(char *files[512])
+int Complete(char *files)
 {
    char temp[512];
-   char *file_name[512];
+   char *file_name = malloc( 128 * sizeof(char));
    FILE *fp;
    char *str = "//I AM NOT DONE";
     sprintf(file_name,"%s",strtok(files,"\n"));
