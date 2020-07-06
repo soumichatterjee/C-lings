@@ -29,7 +29,8 @@ int main(int argc,char **argv)
         while(j<exe_cnt)
          {
             sprintf(directory,"%s", dir_list.array[j]);
-            compile(directory);
+            printf("inside while %s", directory);
+	    compile(directory);
             if(Complete(directory) != 1)
             {
                 printf("Remove //I AM NOT DONE comment to continue compilation \n");
@@ -42,7 +43,8 @@ int main(int argc,char **argv)
     }
     else if(strcmp("verify",argv[1]) == 0)
     {
-        for(int j=1; j<exe_cnt; j++)
+        printf("\n Inside verify %s \n",directory);
+	for(int j=1; j<exe_cnt; j++)
         {
             sprintf(directory,"%s",dir_list.array[j]);
             compile(directory);
@@ -57,9 +59,10 @@ int main(int argc,char **argv)
 }
  struct lists get_directory(char *path)
 {
-    char cwd[PATH_MAX],command[128],*line =NULL;
+    char cwd[PATH_MAX] = {0}, command[128] = {0}, *line = NULL;
     size_t len = 0;
     struct lists result;
+    printf("Value passed in get_directory: :%s \n",path);
     if (getcwd(cwd, sizeof(cwd)) != NULL)
     {
         printf("problem- \n");
@@ -68,27 +71,26 @@ int main(int argc,char **argv)
     {
         perror("getcwd() error");
     }
-        strcat(command,"ls ");
-        strcat(command,cwd);
-        strcat(command,"/Problems/ > file.txt");
+        sprintf(command,"%s%s%s","ls ",cwd,"/Problems/ > file.txt");
         system(command);
+	printf("\n Total command after strcats: %s \n", command);
         FILE *fp;
         if((fp = fopen("file.txt","r"))== NULL)
         {
             perror("Unable to Open file");
             exit(1);
         }
-        strcat(path,cwd);
-        strcat(path,"/Problems/");
-        int j=0;
+	printf("\n path %s, cwd: %s \n",path,cwd);
+	sprintf(path,"%s%s",cwd,"/Problems/");
+	printf("late path: %s \n", path);
+        int j = 0;
         while(getline(&line,&len,fp)!= -1){
-                strcat(result.array[j],path);
-                strcat(result.array[j],line);
-                printf("%s",result.array[j]);
+                sprintf(result.array[j], "%s%s", path, line);
+		printf("%s",result.array[j]);
             
             j++;       
     }
-        exe_cnt =j;
+        exe_cnt = j;
         return result;
         //sprintf(path,"%s%s%d%s",cwd,"/Problems/",i,".c");
         //printf("%s\n", path);
@@ -96,8 +98,8 @@ int main(int argc,char **argv)
 }
 void compile(char *paths)
 {
-    char h[64];
-    char hint[64];
+    char h[64] = {0};
+    char hint[64] = {0};
     char *gcc = malloc(128 * sizeof(char));
 
     sprintf(gcc,"%s%s","gcc ",paths);
@@ -123,7 +125,7 @@ void compile(char *paths)
 
 int Complete(char *files)
 {
-   char temp[512];
+   char temp[512] = {0};
    char *file_name = malloc( 128 * sizeof(char));
    FILE *fp;
    char *str = "//I AM NOT DONE";
