@@ -10,7 +10,7 @@ struct lists
 
 int exe_cnt =0; // Total number of excerises
 struct lists get_directory(char *);
-void compile();
+int compile();
 int Complete();
 int main(int argc,char **argv)
 {
@@ -30,15 +30,16 @@ int main(int argc,char **argv)
          {
             sprintf(directory,"%s", dir_list.array[j]);
             printf("inside while %s", directory);
-	    compile(directory);
-            if(Complete(directory) != 1)
+            if(compile(directory) == 0)
             {
-                printf("Remove //I AM NOT DONE comment to continue compilation \n");
-                char *u;
-                scanf("%c",u);
-            }
-            else j++;
-            
+                if(Complete(directory) != 1)
+                {
+                    printf("Remove //I AM NOT DONE comment to continue compilation \n");
+                    char *u;
+                    scanf("%c",u);
+                }
+                else j++;
+            }        
         }
     }
     else if(strcmp("verify",argv[1]) == 0)
@@ -96,7 +97,7 @@ int main(int argc,char **argv)
         //printf("%s\n", path);
 
 }
-void compile(char *paths)
+int compile(char *paths)
 {
     char h[64] = {0};
     char hint[64] = {0};
@@ -109,10 +110,11 @@ void compile(char *paths)
     if (j == 0)
     {
       printf("\nCONGRATULATIONS! problem compiled\n");
+      return j;
     }
     else
     {
-      printf("\nproblem not compiled, \n solve error to compile\n for hint type <problem.hint>\n");
+      printf("\n solve error to compile\n for hint type <problem.hint>\n");
 
       strcpy(h, "problem.hint");
       scanf("%s", hint);
@@ -121,6 +123,7 @@ void compile(char *paths)
         printf("try checking print statement\n");
       }
     }
+    return j;
 }
 
 int Complete(char *files)
