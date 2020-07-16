@@ -8,8 +8,8 @@ struct lists
     char array[50][100];
 };
 
-int exe_cnt =0; // Total number of excerises
-struct lists get_directory(char *);
+
+struct lists get_directory(char *,int *);
 int compile();
 int Complete();
 int main(int argc,char **argv)
@@ -21,7 +21,8 @@ int main(int argc,char **argv)
     }  
     char *directory = malloc(128 * sizeof(char));
     struct lists dir_list;
-    dir_list = get_directory((char *)directory); 
+    int exe_cnt =0;
+    dir_list = get_directory((char *)directory,&exe_cnt); 
  
     if(strcmp("watch",argv[1]) == 0)
     {
@@ -58,7 +59,7 @@ int main(int argc,char **argv)
     
     
 }
- struct lists get_directory(char *path)
+ struct lists get_directory(char *path, int *count)
 {
     char cwd[PATH_MAX] = {0}, command[128] = {0}, *line = NULL;
     size_t len = 0;
@@ -91,7 +92,7 @@ int main(int argc,char **argv)
             
             j++;       
     }
-        exe_cnt = j;
+        count = &j;
         return result;
         //sprintf(path,"%s%s%d%s",cwd,"/Problems/",i,".c");
         //printf("%s\n", path);
