@@ -12,6 +12,7 @@ struct lists
 struct lists get_directory(char *,int *);
 int compile();
 int Complete();
+void choppy(char *);
 int main(int argc,char **argv)
 {
     if(argc == 1)
@@ -27,19 +28,30 @@ int main(int argc,char **argv)
     if(strcmp("watch",argv[1]) == 0)
     {
         int j=0;
-        while(j<exe_cnt)
+        while(j<exe_cnt+1)
          {
             sprintf(directory,"%s", dir_list.array[j]);
+            struct lists prob_list;
+            int counts=0;
+            printf("directoy_data: %s \n" , directory);
+            prob_list = get_directory((char *)directory,&counts); 
             printf("inside while %s", directory);
-            if(compile(directory) == 0)
-            {
-                if(Complete(directory) != 1)
-                {
-                    printf("Remove //I AM NOT DONE comment to continue compilation \n");
-                    char *u;
-                    scanf("%c",u);
+            for(int i=0; i<counts; i++){
+                if(strstr(prob_list.array[i],"hint.txt") != NULL)
+                {   
+                    j++;
+                    continue;
                 }
-                else j++;
+                if(compile(prob_list.array[i]) == 0)
+                {
+                    if(Complete(prob_list.array[i]) != 1)
+                    {
+                        printf("Remove //I AM NOT DONE comment to continue compilation \n");
+                        char *u;
+                        scanf("%c",u);
+                    }
+                    else j++;
+                }
             }        
         }
     }
@@ -64,35 +76,53 @@ int main(int argc,char **argv)
     char cwd[PATH_MAX] = {0}, command[128] = {0}, *line = NULL;
     size_t len = 0;
     struct lists result;
+    char *file_name;
     printf("Value passed in get_directory: :%s \n",path);
     if (getcwd(cwd, sizeof(cwd)) != NULL)
     {
         printf("problem- \n");
     }
     else
-    {
+    {   
         perror("getcwd() error");
     }
+    if(strcmp(path,"") == 0)
+    {
         sprintf(command,"%s%s%s","ls ",cwd,"/Problems/ > file.txt");
-        system(command);
+        file_name = "file.txt";
+    }
+    else
+    {
+        choppy(path);
+        strcat(path,"/");
+        sprintf(command,"%s%s%s","ls ",path," > problem.txt");
+        file_name = "problem.txt";
+    }    
+    printf("Inside get_directoy \n");
 	printf("\n Total command after strcats: %s \n", command);
+    system(command);
+
+
         FILE *fp;
-        if((fp = fopen("file.txt","r"))== NULL)
+        if((fp = fopen(file_name,"r"))== NULL)
         {
             perror("Unable to Open file");
             exit(1);
         }
 	printf("\n path %s, cwd: %s \n",path,cwd);
-	sprintf(path,"%s%s",cwd,"/Problems/");
+    if(strcmp(path,"") == 0)
+    {
+        sprintf(path,"%s%s",cwd,"/Problems/");
+    }
 	printf("late path: %s \n", path);
         int j = 0;
         while(getline(&line,&len,fp)!= -1){
-                sprintf(result.array[j], "%s%s", path, line);
-		printf("%s",result.array[j]);
-            
+            sprintf(result.array[j], "%s%s", path, line);
+		    printf("%s",result.array[j]);
             j++;       
-    }
-        count = &j;
+    }   
+        *count = j;
+        fclose(fp);
         return result;
         //sprintf(path,"%s%s%d%s",cwd,"/Problems/",i,".c");
         //printf("%s\n", path);
@@ -154,3 +184,7 @@ int Complete(char *files)
   
 }
 
+void choppy( char *s )
+{
+    s[strcspn ( s, "\n" )] = '\0';
+}
