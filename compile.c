@@ -10,6 +10,7 @@ struct lists
 
 
 struct lists get_directory(char *,int *);
+void get_hint(char *,int);
 int compile();
 int Complete();
 void choppy(char *);
@@ -28,7 +29,7 @@ int main(int argc,char **argv)
     if(strcmp("watch",argv[1]) == 0)
     {
         int j=0;
-        while(j<exe_cnt+1)
+        while(j<exe_cnt)
          {
             sprintf(directory,"%s", dir_list.array[j]);
             struct lists prob_list;
@@ -36,10 +37,11 @@ int main(int argc,char **argv)
             printf("directoy_data: %s \n" , directory);
             prob_list = get_directory((char *)directory,&counts); 
             printf("inside while %s", directory);
-            for(int i=0; i<counts; i++){
+            int i = 0;
+            while(i<counts){
                 if(strstr(prob_list.array[i],"hint.txt") != NULL)
                 {   
-                    j++;
+                    i++;
                     continue;
                 }
                 if(compile(prob_list.array[i]) == 0)
@@ -47,12 +49,18 @@ int main(int argc,char **argv)
                     if(Complete(prob_list.array[i]) != 1)
                     {
                         printf("Remove //I AM NOT DONE comment to continue compilation \n");
-                        char *u;
-                        scanf("%c",u);
+                        char u;
+                        scanf("%c",&u);
                     }
-                    else j++;
+                    else i++;
                 }
-            }        
+                else
+                {
+                    get_hint((char *)directory,i);
+                }
+                
+            }
+            j++;        
         }
     }
     else if(strcmp("verify",argv[1]) == 0)
@@ -61,7 +69,13 @@ int main(int argc,char **argv)
 	for(int j=1; j<exe_cnt; j++)
         {
             sprintf(directory,"%s",dir_list.array[j]);
-            compile(directory);
+            struct lists prob_list;
+            int counts=0;
+            prob_list = get_directory((char *)directory,&counts); 
+            for(int k=0; k<counts; k++)
+            {
+            compile(prob_list.array[k]);
+            }
         }
     }
     else
@@ -130,8 +144,7 @@ int main(int argc,char **argv)
 }
 int compile(char *paths)
 {
-    char h[64] = {0};
-    char hint[64] = {0};
+    
     char *gcc = malloc(128 * sizeof(char));
 
     sprintf(gcc,"%s%s","gcc ",paths);
@@ -145,14 +158,8 @@ int compile(char *paths)
     }
     else
     {
-      printf("\n solve error to compile\n for hint type <problem.hint>\n");
-
-      strcpy(h, "problem.hint");
-      scanf("%s", hint);
-      if (strcmp(h, hint) == 0)
-      {
-        printf("try checking print statement\n");
-      }
+      printf("\n solve error to compile");
+            j= -1;
     }
     return j;
 }
@@ -183,7 +190,52 @@ int Complete(char *files)
    return(1);
   
 }
+void get_hint(char *hint_directory, int numb)
+{
+    FILE *fp;
+    char temp[512] = {0};
+    char h[64] = {0};
+    char hint[64] = {0};
+    printf("for hint type <problem.hint> \n");
+    strcpy(h, "problem.hint");
+    scanf("%s", hint);
+    if (strcmp(h, hint) == 0)
+    {
+        if(strstr(hint_directory,"hint.txt")== NULL)
+        {
+            strcat(hint_directory,"hint.txt");
+            printf("%s \n",hint_directory);
+        }
+   if((fp = fopen(hint_directory,"r")) == NULL)
+    {    
+       perror("File Opening Error");
 
+    }
+    int i = 0;
+   while(fgets(temp,512,fp) != NULL){
+       if(i == numb)
+       {
+           if(fp)
+            {
+                fclose(fp);
+            }
+            printf("Hint: %s \n",temp);
+            return;
+        }
+        if(fp)
+            {
+                fclose(fp);
+            }
+            printf("No hint for the problem \n");
+   }
+    }
+    else
+    {
+        printf("Was that a typo? or you didn't want a hint? \n");
+    }
+    
+
+}
 void choppy( char *s )
 {
     s[strcspn ( s, "\n" )] = '\0';
