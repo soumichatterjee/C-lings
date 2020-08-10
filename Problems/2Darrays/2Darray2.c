@@ -1,4 +1,5 @@
 // Write a program to multiply two matrix using function and the mentioned variables.
+// For hint type "hint"
 
 #include<stdio.h>
 void multiply(int matrixone[5][5], int matrixtwo[5][5], int, int, int);
@@ -74,3 +75,5 @@ for (i=0;i<m;i++)
     printf("\n");
 }
 }
+
+// I AM NOT DONE!
