@@ -2,6 +2,7 @@
 // On day 2 {345,656,432} Euro respectively.
 // On day 3 {534,265,453} Euro respectively.
 // Write a program to find out the day of maximum collection and maximum collection by the person by using arrays.
+// For hint type "hint"
 
 #include
 
@@ -62,3 +63,5 @@ int main()
 	printf(“\n person %d has maximum sum “, column_index + 1);
 	return 0;
 }
+
+// I AM NOT DONE!

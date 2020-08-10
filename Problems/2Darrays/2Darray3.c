@@ -1,4 +1,5 @@
-// Write a program to make upper triangle of a mtrix '*' and lower triangle '#'.
+// Write a program to make upper triangle of a matrix '*' and lower triangle '#'.
+// For hint type "hint"
 
 
 
@@ -44,3 +45,5 @@ void main()
 
 
     }
+
+// I AM NOT DONE!
