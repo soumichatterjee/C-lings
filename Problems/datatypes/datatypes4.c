@@ -1,4 +1,4 @@
-// Mr.Ariel, the class teacher of class X has made the marksheet of students in a strange manner. He has put certain alphabets instead of intezers in place of marks.
+// Mr.Ariel, the class teacher of class X has made the marksheet of students in a strange manner. He has put certain alphabets instead of integers in place of marks.
 // He has asked students to crack the value of the alphabets to get their marks.
 // Can you do it?
 // For hints type "hint"

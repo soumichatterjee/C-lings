@@ -1,6 +1,6 @@
 // Do you know which is the longest word in English?
-// It is pneumonoultramicroscopicsilicovolcanoconiosis , a lung disease.
-//First using for loop try to count the number of letters in it, then use inbuilt function for the same.
+// It is pneumonoultramicroscopicsilicovolcanoconiosis, a lung disease.
+//First using a for loop try to count the number of letters in it, then use inbuilt function for the same.
 
 #include <stdio.h>
 

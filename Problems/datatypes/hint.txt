@@ -1,0 +1,4 @@
+use the int tyoe that takes only positive values.
+use the datatype that is used to print decimal values.
+use the datatype that is used to print larger decimal values.
+perform type cast.

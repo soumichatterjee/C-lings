@@ -1,0 +1,3 @@
+follow the steps mentioned in code.
+number corresponds to the switch as well the number of the month.
+use basic enum knowledge to solve this. Use any suitable trick.

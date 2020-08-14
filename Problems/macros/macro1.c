@@ -1,5 +1,5 @@
 // Using macro swap two numbers using the given parameters.
-// For hint typr "hint"
+// For hint type "hint"
 
 
 #include<stdio.h>

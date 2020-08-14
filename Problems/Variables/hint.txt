@@ -1,3 +1,2 @@
-Check print statement1
-Check print statement2
-Check print statement3
+use concepts of naming variables in C.
+use your knowledge in C language to solve it.

@@ -9,19 +9,19 @@
 int main()
 {
 	int days, person, row, col, sum = 0, row_index = 0, column_index = 0;
-	scanf(“%d %d”,&days,&person);
+	scanf("%d %d",&days,&person);
 	int row_arr[days];
 	int i, j;
 	int mat[days][person];
 	for(................)
 		{
 			for(...................)
-				scanf(“%d”,&mat[i][j]);
+				scanf("%d",&mat[i][j]);
 		}
 
 	int z = 0;
 
-	printf(“Sum of rows is “);
+	printf("Sum of rows is ");
 	for(..........................)
 		{
 			sum = 0;

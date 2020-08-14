@@ -1,4 +1,4 @@
-// Mili has drawn a closed structures consisting of three sides. Now she wants to calculate its area using macro.
+// Miranda has drawn a closed structures consisting of three sides. Now she wants to calculate its area using macro.
 // Help her to do it.
 // For hint type "hint"
 

@@ -1,4 +1,4 @@
-// Write a program to multiply two matrix using function and the mentioned variables.
+// Write a program to multiply two matrices using function and use the mentioned variables.
 // For hint type "hint"
 
 #include<stdio.h>

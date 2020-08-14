@@ -1,0 +1,2 @@
+write the swap function as macro1.
+write the formula of finding area of a triangle as macro.

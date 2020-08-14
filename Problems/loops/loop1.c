@@ -1,6 +1,8 @@
-// Students have got their numbers from the given values in the previous program. Now they want to calculate their aggregate.
+// Students have got their numbers from the given values in the problem datatypes4. Now they want to calculate their aggregate.
 // Help them to do it using for loop.
 // For hint type "hint"
+
+
 #include <stdio.h>
 int main()
 {

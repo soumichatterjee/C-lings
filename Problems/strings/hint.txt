@@ -1,0 +1,6 @@
+use strlen the inbuilt function also write it using for loop.
+change the '?' with required code.
+use inbuilt string function. Remember to add the header file.
+use inbuilt functions to compare the sequence and print message of their shared ancestery accordingly
+use the concept of finding words in a string array.
+use concept of deletion and addition of strings.

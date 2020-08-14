@@ -1,4 +1,4 @@
-// After Flemming got the number of chromosomes of all the mentioned organisms, Flemming wants to print them in ascending order.
+// After Flemming got the number of chromosomes of the mentioned organisms, Flemming wants to print them in ascending order.
 // Write a function for the same.
 // For hints type "hint"
 
@@ -54,3 +54,5 @@ void printArray(int chromosome[], int size)
         printf("%d ", chromosome[i]);
     printf("\n");
 }
+
+// I AM NOT DONE!

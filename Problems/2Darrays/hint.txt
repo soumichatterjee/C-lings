@@ -1,0 +1,3 @@
+scan a 2D array and print the sum of it's row and column which is maximum along with index that denotes the day and person respectively.
+follow the instructions mentioned in code and write the loop conditions.
+follow the instructions mentioned in code and write the loop conditions.

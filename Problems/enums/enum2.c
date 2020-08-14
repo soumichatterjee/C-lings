@@ -1,5 +1,5 @@
 // Ferdinand is a teacher at a kindergarten school.
-// He wants to teach his students the name of the month and the number at which they occur, help him do that using switch and enumerator.
+// He wants to teach his students the name of the months and the number at which they occur, help him do that using switch and enumerator.
 // For hints type "hint"
 
 

@@ -1,6 +1,6 @@
-// Mr.Walther Flemming after finding chromosomes thought of keeping a track of the number of chromosomes he found in different organism.
+// Mr.Walther Flemming after finding chromosomes thought of keeping a track of the number of chromosomes he found in different organisms.
 // He made an array which stores the number of chromosomes of human beings = 46, rat = 42, dog = 78, cat = 38, potato = 48, butterfly = 380 respectively.
-// He by mistake forgot to enter the value of elephants chromosome which is 56.
+// He by mistake forgot to enter the value of elephant's chromosome number which is 56.
 // Help him to add it in the array at 5th position.
 // For hint type "hint"
 

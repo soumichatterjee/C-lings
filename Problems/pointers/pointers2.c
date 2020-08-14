@@ -11,10 +11,10 @@ int **allocate(int h, int w)
     int *p;
     int i, j;
 
-    p = (int )malloc(h*sizeof(int *));
+    p = (int )malloc(sizeof(int *));
     for (i=0;i<h;i++)
 
-        pli] = (int *)malloc(w * sizeof(int));
+        p[i] = (int *)malloc(sizeof(int));
     return(p);
 
 }
@@ -33,7 +33,7 @@ void print_data(int p, int h, int w)
     for (i=0;i<h;i++)
     {
 
-        for (j=0;j<w3j++)
+        for (j=0;j<w;j++)
 
             printf("%5d ", p[i][j]);
         printf("\n");

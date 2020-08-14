@@ -1,0 +1,3 @@
+follow the instructions mentioned in code.
+using pointers solve structure1.
+use the concept of passing structure as function parameter.

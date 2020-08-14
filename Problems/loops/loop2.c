@@ -1,8 +1,8 @@
-// A student wasn't satisfied with his marks and and reviewed his paper.
+// A student wasn't satisfied with his marks and reviewed his paper.
 // In that he found a strange fashion that for all his marks other than the last one has got incremented in a specific manner.
 // The marks of even places got incremented by 4 whereas marks at odd places got incremented by 3.
-//Use pointer to access the marks within the array and print the updated marks.
-//for hint type "hint"
+// Use pointer to access the marks within the array and print the updated marks.
+// for hint type "hint"
 
 #include <stdio.h>
 int main()
