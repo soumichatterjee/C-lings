@@ -1,6 +1,6 @@
 // Students need only the aggregate of marks, so declaraing each subject marks individually and then adding them is wastage of time.
 // Find a more effective way which takes only the marks as input of an specific data structure and serves the purpose.
-//For hint type "hitn"
+// For hint type "hint"
 
 #include <stdio.h>
 
@@ -14,7 +14,7 @@ int main()
     printf("enter the number of subjects: \n");
     scanf("%d\n", &NumSub);
 
-    for (i = 0; i < NumSub; i++)
+    for (........................)
     {
 
         //scan the required data structure that holds the marks obtained
@@ -22,12 +22,12 @@ int main()
 
     printf("\nPrinting marks obtained: \n\n");
 
-    for (i = 0; i < NumSub; i++)
+    for (...........................)
     {
         // print marks obtained
     }
 
-    for (i = 0; i < NumSub; i++)
+    for (........................)
     {
 
         //calculate the aggregate

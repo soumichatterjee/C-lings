@@ -1,0 +1,3 @@
+watch the program carefully.
+fix errors that shown in terminal.
+use the concept of pointers along with memory allocation for string arrays.

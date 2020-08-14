@@ -1,0 +1,2 @@
+use a flag that detects whether 90 is there in the array.
+print fibonacci series

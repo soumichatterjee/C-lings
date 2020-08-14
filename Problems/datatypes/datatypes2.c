@@ -1,5 +1,5 @@
-// Antonio lended money to Bassanio to visit Belmont with a condition that he will give proper details of his expenditure.
-// Bassanio is trying to print the actual expenditure i.e with deciamal but facing some issues.
+// Antonio lent money to Bassanio to visit Belmont with a condition that he will give proper details of his expenditure.
+// Bassanio is trying to print the actual expenditure i.e with decimal but facing some issues.
 // Help him to do it.
 // For hint type "hint"
 

@@ -1,0 +1,3 @@
+use malloc
+allocate memory to ptr. Free the allocated memory at the end.
+use realloc. Free at the end.

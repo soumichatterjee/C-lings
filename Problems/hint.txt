@@ -1,0 +1,40 @@
+2Darray1 hint - scan a 2D array and print the sum of it's row and column which is maximum along with index that denotes the day and person respectively.
+2Darray2 hint - follow the instructions mentioned in code and write the loop conditions.
+2Darray3 hint - follow the instructions mentioned in code and write the loop conditions.
+array1 hint - the required data structure is array. Complete the for loop conditions.
+array2 hint - follow the instructions mentioned in code.
+array3 hint - print the array in ascending order. Perform sorting.
+array4 hint - append array and then sort it.
+datatypes1 hint - use the int tyoe that takes only positive values.
+datatypes2 hint - use the datatype that is used to print decimal values.
+datatypes3 hint - use the datatype that is used to print larger decimal values.
+datatypes4 hint - perform type cast.
+DMA hint - use malloc
+DMA1 hint - allocate memory to ptr. Free the allocated memory at the end.
+DMA2 hint - use realloc. Free at the end.
+enum1 hint - follow the steps mentioned in code.
+enum2 hint - number corresponds to the switch as well the number of the month.
+enum3 hint - use basic enum knowledge to solve this. Use any suitable trick.
+files1 hint - follow the instructions mentioned in code.
+files2 hint - follow the instructions mentioned in code.
+files3 hint - follow the instructions mentioned in code.
+function1 hint - use a flag that detects whether 90 is there in the array.
+function2 hint - print fibonacci series
+loop1 hint - follow the instructions mentioned in code.
+loop2 hint - follow the instructions mentioned in code.
+macro1 hint - write the swap function as macro1.
+macro2 hint - write the formula of finding area of a triangle as macro.
+pointer1 hint - watch the program carefully.
+pointer2 hint - fix errors that shown in terminal.
+pointer3 hint - use the concept of pointers along with memory allocation for string arrays.
+string1 hint - use strlen the inbuilt function also write it using for loop.
+string2 hint - change the '?' with required code.
+string3 hint - use inbuilt string function. Remember to add the header file.
+string4 hint -  use inbuilt functions to compare the sequence and print message of their shared ancestery accordingly
+string5 hint - use the concept of finding words in a string array.
+string6 hint - use concept of deletion and addition of strings.
+structure1 hint - follow the instructions mentioned in code.
+structure2 hint - using pointers solve structure1.
+structure3 hint - use the concept of passing structure as function parameter.
+variable1 hint - use concepts of naming variables in C.
+variable2 hint - use your knowledge in C language to solve it.

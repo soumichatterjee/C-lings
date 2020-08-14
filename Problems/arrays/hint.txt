@@ -1,0 +1,4 @@
+the required data structure is array. Complete the for loop conditions.
+follow the instructions mentioned in code.
+print the array in ascending order. Perform sorting.
+append array and then sort it.

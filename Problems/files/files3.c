@@ -1,4 +1,4 @@
-// Out of curiousity Nerrisa thought of printing the number of words and characters present in "cigcomponent"
+// Out of curiosity Nerrisa thought of printing the number of words and characters present in "cigcomponent"
 // But failed to do so. Help her to do that.
 // For hints type "hint"
 
